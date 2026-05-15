@@ -1,0 +1,52 @@
+title: "Skalbar juridik i agila arbetssätt"
+subtitle: "En praktisk handbok för jurister, arkitekter, kravfångare och verksamhetsspecialister"
+author: "Erland Lindmark"
+language: "sv"
+difficulty: "experienced"
+audience: "Jurister, arkitekter, kravfångare, verksamhetsspecialister, produktägare och chefer i myndighetsnära eller reglerad verksamhet"
+book_type: "handbook"
+edition: "1"
+version: "0.1"
+date: "2026-05-15"
+rights: "All rights reserved"
+publisher: ""
+cover_image: "assets/cover/cover.png"
+identifier: "urn:uuid:b32c764e-99e2-4726-8dc3-652274385796"
+creator_role: "aut"
+subject: "Juridik, agila arbetssätt, myndighetsutveckling, roller, styrning"
+description: "En praktisk handbok om hur juridisk kompetens kan användas skalbart i agila arbetssätt när jurister är en begränsad resurs."
+project_slug: "skalbar-juridik-i-agila-arbetssatt"
+zip_naming:
+  initial: "skalbar-juridik-i-agila-arbetssatt-projekt.zip"
+  chapter_update: "skalbar-juridik-i-agila-arbetssatt-projekt-kapitel-NN.zip"
+chapters:
+  - chapters/00-inledning.md
+  - chapters/01-fran-analys-i-efterhand-till-juridik-i-flodet.md
+  - chapters/02-det-tidigare-samarbetet.md
+  - chapters/03-nar-team-arbetar-iterativt.md
+  - chapters/04-juristen-som-begransad-resurs.md
+  - chapters/05-juridisk-triagering.md
+  - chapters/06-juridiska-sensorer.md
+  - chapters/07-forum-dar-juristen-gor-nytta.md
+  - chapters/08-levande-konsekvensbedomning.md
+  - chapters/09-fran-promemoria-till-beslutsnotering.md
+  - chapters/10-stoppar-styr-eller-oppnar-vag.md
+  - chapters/11-prioritering-mellan-team.md
+  - chapters/12-fallgropar-i-skalbar-juridik.md
+  - chapters/13-verktygslada.md
+  - chapters/14-organisatorisk-juridisk-formaga.md
+exports:
+  epub:
+    enabled: true
+    include_text_toc: false
+    airy_layout: true
+    render_markdown_styles: true
+  pdf:
+    enabled: true
+    include_toc_before_introduction: true
+    render_markdown_styles: true
+  docx:
+    enabled: true
+    render_markdown_styles: true
+  markdown:
+    enabled: true
