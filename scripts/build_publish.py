@@ -52,7 +52,7 @@ def validate(root: Path, metadata: dict) -> list[Path]:
 
     chapters: list[Path] = []
     errors: list[str] = []
-    for rel in chapter_names:
+    for index, rel in enumerate(chapter_names):
         path = root / rel
         if not path.exists():
             errors.append(f"Saknar kapitel: {rel}")
@@ -60,10 +60,17 @@ def validate(root: Path, metadata: dict) -> list[Path]:
         text = path.read_text(encoding="utf-8")
         if text.count("```") % 2:
             errors.append(f"{rel}: ojämnt antal kodblocksmarkörer")
-        if re.search(r"^#{4,}\s", text, flags=re.MULTILINE):
-            errors.append(f"{rel}: innehåller H4 eller djupare rubrik")
-        if len(re.findall(r"^#\s", text, flags=re.MULTILINE)) != 1:
-            errors.append(f"{rel}: ska ha exakt en H1-rubrik")
+
+        h1_matches = list(re.finditer(r"^#\s+(.+)$", text, flags=re.MULTILINE))
+        if not h1_matches:
+            errors.append(f"{rel}: saknar H1-rubrik")
+        else:
+            first_h1 = h1_matches[0].group(1).strip()
+            if index == 0:
+                if not first_h1.lower().startswith("inledning"):
+                    errors.append(f"{rel}: första H1-rubriken måste börja med Inledning")
+            elif not re.match(r"^Kapitel\s+\d+\s*:\s*.+$", first_h1):
+                errors.append(f"{rel}: första H1-rubriken måste följa 'Kapitel N: Titel'")
         chapters.append(path)
 
     if errors:
